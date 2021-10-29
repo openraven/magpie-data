@@ -16,16 +16,19 @@
 package io.openraven.magpie.data.aws.interfaces;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
+import io.openraven.magpie.data.aws.utils.JsonConverter;
 
-import javax.persistence.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 import java.time.Instant;
 
 @Access(AccessType.FIELD)
 @MappedSuperclass
-@TypeDef(name = "JSONB", typeClass = JsonBinaryType.class)
 public class AWSResource {
     @Id
     @Column(name = "documentid", columnDefinition = "TEXT",
@@ -60,18 +63,18 @@ public class AWSResource {
     public Long sizeInBytes;
 
     @Column(name = "configuration", columnDefinition = "JSONB")
-    @Type(type = "JSONB")
+    @Convert(converter = JsonConverter.class)
     public JsonNode configuration;
 
     @Column(name = "supplementaryconfiguration", columnDefinition = "JSONB")
-    @Type(type = "JSONB")
+    @Convert(converter = JsonConverter.class)
     public JsonNode supplementaryConfiguration;
 
     @Column(name = "tags", columnDefinition = "JSONB")
-    @Type(type = "JSONB")
+    @Convert(converter = JsonConverter.class)
     public JsonNode tags;
 
     @Column(name = "discoverymeta", columnDefinition = "JSONB")
-    @Type(type = "JSONB")
+    @Convert(converter = JsonConverter.class)
     public JsonNode discoveryMeta;
 }

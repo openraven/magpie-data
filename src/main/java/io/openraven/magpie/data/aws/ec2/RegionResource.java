@@ -16,7 +16,7 @@
 package io.openraven.magpie.data.aws.ec2;
 
 import com.fasterxml.jackson.databind.node.NullNode;
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.regions.RegionMetadata;
 

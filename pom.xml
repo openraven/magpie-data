@@ -15,6 +15,7 @@
         <javax.persistence.version>2.2</javax.persistence.version>
         <findbugs.version>3.0.2</findbugs.version>
         <jackson.version>2.13.0</jackson.version>
+        <reflections.version>0.10.2</reflections.version>
     </properties>
 
     <dependencyManagement>
@@ -30,6 +31,12 @@
     </dependencyManagement>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>${reflections.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>javax.persistence</groupId>
@@ -197,6 +204,14 @@
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>ssm</artifactId>
+        </dependency>
+
+         <!--    TEST    -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.7.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

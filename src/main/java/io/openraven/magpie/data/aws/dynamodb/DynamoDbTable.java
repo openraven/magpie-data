@@ -15,7 +15,7 @@
  */
 package io.openraven.magpie.data.aws.dynamodb;
 
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 import io.openraven.magpie.data.aws.shared.PayloadUtils;
 import software.amazon.awssdk.services.dynamodb.model.TableDescription;
 
@@ -24,7 +24,7 @@ import software.amazon.awssdk.services.dynamodb.model.TableDescription;
 @javax.persistence.Table(name = DynamoDbTable.TABLE_NAME)
 public class DynamoDbTable extends AWSResource {
   protected static final String TABLE_NAME = "awsdynamodbtable";
-  protected static final String RESOURCE_TYPE = "AWS::DynamoDB::Table";
+  public static final String RESOURCE_TYPE = "AWS::DynamoDB::Table";
 
   public DynamoDbTable() {}
 

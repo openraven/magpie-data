@@ -15,7 +15,7 @@
  */
 package io.openraven.magpie.data.aws.secretsmanager;
 
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 
 @javax.persistence.Entity
 @javax.persistence.Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)

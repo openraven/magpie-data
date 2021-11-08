@@ -15,7 +15,7 @@
  */
 package io.openraven.magpie.data.aws.accounts;
 
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 import io.openraven.magpie.data.aws.shared.PayloadUtils;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.iam.model.Group;
@@ -25,7 +25,7 @@ import software.amazon.awssdk.services.iam.model.Group;
 @javax.persistence.Table(name = IamGroup.TABLE_NAME)
 public class IamGroup extends AWSResource {
 
-  protected static final String TABLE_NAME = "awsiamgroup";
+  public static final String TABLE_NAME = "awsiamgroup";
   public static final String RESOURCE_TYPE = "AWS::IAM::Group";
 
   public IamGroup() {

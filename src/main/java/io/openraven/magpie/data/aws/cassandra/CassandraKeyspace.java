@@ -15,7 +15,7 @@
  */
 package io.openraven.magpie.data.aws.cassandra;
 
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 
 import static java.lang.String.format;
 

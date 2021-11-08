@@ -15,7 +15,7 @@
  */
 package io.openraven.magpie.data.aws.accounts;
 
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 
 @javax.persistence.Entity
 @javax.persistence.Table(name = UserCredentialReport.TABLE_NAME)

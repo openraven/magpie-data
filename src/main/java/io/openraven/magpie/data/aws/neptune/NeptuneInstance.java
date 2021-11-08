@@ -15,7 +15,7 @@
  */
 package io.openraven.magpie.data.aws.neptune;
 
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 import io.openraven.magpie.data.aws.shared.PayloadUtils;
 import software.amazon.awssdk.services.neptune.model.DBInstance;
 
@@ -24,7 +24,7 @@ import software.amazon.awssdk.services.neptune.model.DBInstance;
 @javax.persistence.Table(name = NeptuneInstance.TABLE_NAME)
 public class NeptuneInstance extends AWSResource {
   protected static final String TABLE_NAME = "awsneptuneinstance";
-  protected static final String RESOURCE_TYPE = "AWS::Neptune::Instance";
+  public static final String RESOURCE_TYPE = "AWS::Neptune::Instance";
 
   public NeptuneInstance() {
     this.resourceType = RESOURCE_TYPE;

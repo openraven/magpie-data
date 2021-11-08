@@ -17,7 +17,7 @@ package io.openraven.magpie.data.aws.efs;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 import io.openraven.magpie.data.aws.shared.PayloadUtils;
 import software.amazon.awssdk.services.efs.model.FileSystemDescription;
 import software.amazon.awssdk.services.efs.model.Tag;

@@ -15,7 +15,7 @@
  */
 package io.openraven.magpie.data.aws.elbv2;
 
-import io.openraven.magpie.data.aws.interfaces.AWSResource;
+import io.openraven.magpie.data.aws.AWSResource;
 import io.openraven.magpie.data.aws.shared.PayloadUtils;
 import software.amazon.awssdk.services.elasticloadbalancingv2.model.LoadBalancer;
 

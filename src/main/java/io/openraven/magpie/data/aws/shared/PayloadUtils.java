@@ -18,7 +18,7 @@ package io.openraven.magpie.data.aws.shared;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import io.openraven.magpie.data.aws.utils.JacksonMapper;
+import io.openraven.magpie.data.utils.JacksonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.exception.SdkClientException;

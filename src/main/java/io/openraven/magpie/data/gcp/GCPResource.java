@@ -1,19 +1,4 @@
-/*
- * Copyright 2021 Open Raven Inc
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package io.openraven.magpie.data.aws;
+package io.openraven.magpie.data.gcp;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -21,51 +6,41 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import io.openraven.magpie.data.utils.EntityTypeResolver;
 import io.openraven.magpie.data.utils.JsonConverter;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.time.Instant;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.CUSTOM, include = JsonTypeInfo.As.PROPERTY, property = "resourceType")
 @JsonTypeIdResolver(EntityTypeResolver.class)
 @Access(AccessType.FIELD)
 @MappedSuperclass
-public class AWSResource {
+public class GCPResource {
     @Id
     @Column(name = "documentid", columnDefinition = "TEXT",
             nullable = false, unique = true)
     public String documentId;
-
-    @Column(name = "arn", columnDefinition = "TEXT")
-    public String arn;
+    @Column(name = "assetid", columnDefinition = "TEXT")
+    public String assetId;
     @Column(name = "resourcename", columnDefinition = "TEXT")
     public String resourceName;
     @Column(name = "resourceid", columnDefinition = "TEXT")
     public String resourceId;
-
-    // this needs to be updatable = false due to its use a a discriminator
     @Column(name = "resourcetype", columnDefinition = "TEXT", updatable = false)
     public String resourceType;
-
-    @Column(name = "awsregion", columnDefinition = "TEXT")
-    public String awsRegion;
-    @Column(name = "awsaccountid", columnDefinition = "TEXT")
-    public String awsAccountId;
+    @Column(name = "projectid", columnDefinition = "TEXT")
+    public String projectId;
+    @Column(name = "gcpaccountid", columnDefinition = "TEXT")
+    public String gcpAccountId;
     @Column(name = "creatediso", columnDefinition = "TIMESTAMPTZ")
     public Instant createdIso;
     @Column(name = "updatediso", columnDefinition = "TIMESTAMPTZ")
-    public Instant updatedIso;
+    public Instant updatedIso = Instant.now();
     @Column(name = "discoverysessionid", columnDefinition = "TEXT")
     public String discoverySessionId;
 
     @Transient
-    public Long maxSizeInBytes;
+    public Long maxSizeInBytes = null;
     @Transient
-    public Long sizeInBytes;
+    public Long sizeInBytes = null;
 
     @Column(name = "configuration", columnDefinition = "JSONB")
     @Convert(converter = JsonConverter.class)
@@ -83,7 +58,7 @@ public class AWSResource {
     @Convert(converter = JsonConverter.class)
     public JsonNode discoveryMeta;
 
-    public AWSResource() {
+    public GCPResource() {
     }
 
     public String getDocumentId() {
@@ -94,12 +69,12 @@ public class AWSResource {
         this.documentId = documentId;
     }
 
-    public String getArn() {
-        return arn;
+    public String getAssetId() {
+        return assetId;
     }
 
-    public void setArn(String arn) {
-        this.arn = arn;
+    public void setAssetId(String assetId) {
+        this.assetId = assetId;
     }
 
     public String getResourceName() {
@@ -126,20 +101,20 @@ public class AWSResource {
         this.resourceType = resourceType;
     }
 
-    public String getAwsRegion() {
-        return awsRegion;
+    public String getProjectId() {
+        return projectId;
     }
 
-    public void setAwsRegion(String awsRegion) {
-        this.awsRegion = awsRegion;
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
     }
 
-    public String getAwsAccountId() {
-        return awsAccountId;
+    public String getGcpAccountId() {
+        return gcpAccountId;
     }
 
-    public void setAwsAccountId(String awsAccountId) {
-        this.awsAccountId = awsAccountId;
+    public void setGcpAccountId(String gcpAccountId) {
+        this.gcpAccountId = gcpAccountId;
     }
 
     public Instant getCreatedIso() {

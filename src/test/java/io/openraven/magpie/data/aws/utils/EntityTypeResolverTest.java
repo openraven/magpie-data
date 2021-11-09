@@ -8,12 +8,12 @@ import io.openraven.magpie.data.aws.accounts.IamGroup;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class AwsEntityTypeResolverTest {
+class EntityTypeResolverTest {
 
     public static final ObjectMapper MAPPER = new ObjectMapper().registerModule(new JavaTimeModule());
 
     @Test
-    public void testParsing() throws JsonProcessingException {
+    public void testResolveAwsIamGroup() throws JsonProcessingException {
         String json = "{\n" +
             "  \"documentId\":\"4jUz_CPXMG-Z7f8oJltkPg\",\n" +
             "  \"arn\":\"arn:aws:iam::000000000000:group/Accountants\",\n" +

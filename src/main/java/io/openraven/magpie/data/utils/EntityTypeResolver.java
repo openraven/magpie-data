@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.openraven.magpie.data.aws.utils;
+package io.openraven.magpie.data.utils;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.DatabindContext;
@@ -29,7 +29,7 @@ import java.util.Set;
 
 import static java.lang.String.format;
 
-public class AwsEntityTypeResolver extends TypeIdResolverBase {
+public class EntityTypeResolver extends TypeIdResolverBase {
 
     private JavaType baseType;
     private Map<String, Class<?>> typeMap = new HashMap<>();

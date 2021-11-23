@@ -17,23 +17,20 @@
  * limitations under the License.
  * #L%
  */
-package io.openraven.magpie.data.gcp.secret;
+package io.openraven.magpie.data.aws.location;
 
-import io.openraven.magpie.data.gcp.GCPResource;
+import io.openraven.magpie.data.aws.AWSResource;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.Table;
+@javax.persistence.Entity
+@javax.persistence.Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
+@javax.persistence.Table(name = LocationTracker.TABLE_NAME)
+public class LocationTracker extends AWSResource {
 
-@Entity
-@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
-@Table(name = Secret.TABLE_NAME)
-public class Secret extends GCPResource {
+  protected static final String TABLE_NAME = "awslocationtracker";
+  public static final String RESOURCE_TYPE = "AWS::Location::Tracker";
 
-    protected static final String TABLE_NAME = "gcpsecretmanagersecret";
-    public static final String RESOURCE_TYPE = "GCP::SecretManager::Secret";
+  public LocationTracker() {
+    this.resourceType = RESOURCE_TYPE;
+  }
 
-    public Secret() {
-        this.resourceType = RESOURCE_TYPE;
-    }
 }

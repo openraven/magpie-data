@@ -34,10 +34,8 @@
  */
 package io.openraven.magpie.data.aws;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
-import io.openraven.magpie.data.utils.EntityTypeResolver;
+import io.openraven.magpie.data.Resource;
 import io.openraven.magpie.data.utils.JsonConverter;
 
 import javax.persistence.Access;
@@ -49,11 +47,9 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 import java.time.Instant;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.CUSTOM, include = JsonTypeInfo.As.PROPERTY, property = "resourceType")
-@JsonTypeIdResolver(EntityTypeResolver.class)
 @Access(AccessType.FIELD)
 @MappedSuperclass
-public class AWSResource {
+public class AWSResource extends Resource {
     @Id
     @Column(name = "documentid", columnDefinition = "TEXT",
             nullable = false, unique = true)

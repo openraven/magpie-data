@@ -17,23 +17,20 @@
  * limitations under the License.
  * #L%
  */
-package io.openraven.magpie.data.gcp.pubsub;
+package io.openraven.magpie.data.aws.rds;
 
-import io.openraven.magpie.data.gcp.GCPResource;
+import io.openraven.magpie.data.aws.AWSResource;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.Table;
+@javax.persistence.Entity
+@javax.persistence.Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
+@javax.persistence.Table(name = RDSSnapshot.TABLE_NAME)
+public class RDSSnapshot extends AWSResource {
 
-@Entity
-@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
-@Table(name = PubSubSnapshot.TABLE_NAME)
-public class PubSubSnapshot extends GCPResource {
+  protected static final String TABLE_NAME = "awsrdsdbsnapshot";
+  public static final String RESOURCE_TYPE = "AWS::RDS::DBSnapshot";
 
-    protected static final String TABLE_NAME = "gcppubsubsnapshots";
-    public static final String RESOURCE_TYPE = "GCP::PubSub::Snapshots";
+  public RDSSnapshot() {
+    this.resourceType = RESOURCE_TYPE;
+  }
 
-    public PubSubSnapshot() {
-        this.resourceType = RESOURCE_TYPE;
-    }
 }

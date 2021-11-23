@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package io.openraven.magpie.data.gcp.secret;
+package io.openraven.magpie.data.gcp.dlp;
 
 import io.openraven.magpie.data.gcp.GCPResource;
 
@@ -27,13 +27,13 @@ import javax.persistence.Table;
 
 @Entity
 @Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
-@Table(name = Secret.TABLE_NAME)
-public class Secret extends GCPResource {
+@Table(name = DlpJob.TABLE_NAME)
+public class DlpJob extends GCPResource {
 
-    protected static final String TABLE_NAME = "gcpsecretmanagersecret";
-    public static final String RESOURCE_TYPE = "GCP::SecretManager::Secret";
+  protected static final String TABLE_NAME = "gcpdlpjob";
+  public static final String RESOURCE_TYPE = "GCP::Dlp::DlpJob";
 
-    public Secret() {
-        this.resourceType = RESOURCE_TYPE;
-    }
+  public DlpJob() {
+    this.resourceType = RESOURCE_TYPE;
+  }
 }

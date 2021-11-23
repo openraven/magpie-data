@@ -22,8 +22,9 @@ package io.openraven.magpie.data.aws.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.openraven.magpie.data.aws.AWSResource;
+import io.openraven.magpie.data.Resource;
 import io.openraven.magpie.data.aws.accounts.IamGroup;
+import io.openraven.magpie.data.gcp.container.ContainerAnalysisNote;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -75,8 +76,72 @@ class EntityTypeResolverTest {
             "  }\n" +
             "}\n";
 
-        AWSResource awsResource = MAPPER.readValue(json, AWSResource.class);
+        Resource awsResource = MAPPER.readValue(json, Resource.class);
         Assertions.assertEquals(IamGroup.class, awsResource.getClass());
+    }
+
+    @Test
+    public void testGcpResource () throws JsonProcessingException {
+      String json = "{\n" +
+        "  \"documentId\" : \"GfQEABEdOYK9hWLAjA1Tcw\",\n" +
+        "  \"assetId\" : \"projects/oss-discovery-test/notes/JRJz2Yox2lPGDBaAhwm2nPS4Y-CCfwWCk5iRuZTGmf0=-WM-Hlw1PYINGped2F6qYqSC7xUt8v5QILXXtqxkpb7U=\",\n" +
+        "  \"resourceName\" : null,\n" +
+        "  \"resourceId\" : null,\n" +
+        "  \"resourceType\" : \"GCP::ContainerAnalysis::Note\",\n" +
+        "  \"accountId\" : null,\n" +
+        "  \"projectId\" : \"oss-discovery-test\",\n" +
+        "  \"createdIso\" : null,\n" +
+        "  \"updatedIso\" : \"2021-11-23T12:43:17.409279Z\",\n" +
+        "  \"discoverySessionId\" : null,\n" +
+        "  \"maxSizeInBytes\" : null,\n" +
+        "  \"sizeInBytes\" : null,\n" +
+        "  \"configuration\" : {\n" +
+        "    \"typeCase_\" : 0,\n" +
+        "    \"name_\" : \"projects/oss-discovery-test/notes/JRJz2Yox2lPGDBaAhwm2nPS4Y-CCfwWCk5iRuZTGmf0=-WM-Hlw1PYINGped2F6qYqSC7xUt8v5QILXXtqxkpb7U=\",\n" +
+        "    \"shortDescription_\" : \"\",\n" +
+        "    \"longDescription_\" : \"\",\n" +
+        "    \"kind_\" : 0,\n" +
+        "    \"relatedUrl_\" : [ ],\n" +
+        "    \"createTime_\" : {\n" +
+        "      \"seconds_\" : 1624558014,\n" +
+        "      \"nanos_\" : 148725000,\n" +
+        "      \"memoizedIsInitialized\" : -1,\n" +
+        "      \"unknownFields\" : {\n" +
+        "        \"fields\" : { },\n" +
+        "        \"fieldsDescending\" : { }\n" +
+        "      },\n" +
+        "      \"memoizedSize\" : -1,\n" +
+        "      \"memoizedHashCode\" : 0\n" +
+        "    },\n" +
+        "    \"updateTime_\" : {\n" +
+        "      \"seconds_\" : 1624558014,\n" +
+        "      \"nanos_\" : 148725000,\n" +
+        "      \"memoizedIsInitialized\" : -1,\n" +
+        "      \"unknownFields\" : {\n" +
+        "        \"fields\" : { },\n" +
+        "        \"fieldsDescending\" : { }\n" +
+        "      },\n" +
+        "      \"memoizedSize\" : -1,\n" +
+        "      \"memoizedHashCode\" : 0\n" +
+        "    },\n" +
+        "    \"relatedNoteNames_\" : [ ],\n" +
+        "    \"memoizedIsInitialized\" : -1,\n" +
+        "    \"unknownFields\" : {\n" +
+        "      \"fields\" : { },\n" +
+        "      \"fieldsDescending\" : { }\n" +
+        "    },\n" +
+        "    \"memoizedSize\" : -1,\n" +
+        "    \"memoizedHashCode\" : 0\n" +
+        "  },\n" +
+        "  \"supplementaryConfiguration\" : { },\n" +
+        "  \"tags\" : { },\n" +
+        "  \"discoveryMeta\" : { }\n" +
+        "}";
+
+
+      Resource awsResource = MAPPER.readValue(json, Resource.class);
+      Assertions.assertEquals(ContainerAnalysisNote.class, awsResource.getClass());
+
     }
 
 

@@ -46,7 +46,7 @@ import static java.lang.String.format;
 public class EC2Volume extends AWSResource {
 
   protected static final String TABLE_NAME = "awsec2volume";
-  public static final String RESOURCE_TYPE = "AWS::EC2:Volume";
+  public static final String RESOURCE_TYPE = "AWS::EC2::Volume";
 
   @SuppressWarnings("unused")
   public EC2Volume() {

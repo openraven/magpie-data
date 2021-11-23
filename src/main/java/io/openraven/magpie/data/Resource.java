@@ -17,23 +17,22 @@
  * limitations under the License.
  * #L%
  */
-package io.openraven.magpie.data.gcp.secret;
+package io.openraven.magpie.data;
 
-import io.openraven.magpie.data.gcp.GCPResource;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
+import io.openraven.magpie.data.utils.EntityTypeResolver;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.Table;
+@JsonTypeInfo(use = JsonTypeInfo.Id.CUSTOM, include = JsonTypeInfo.As.PROPERTY, property = "resourceType")
+@JsonTypeIdResolver(EntityTypeResolver.class)
+public class Resource {
+  public String resourceType;
 
-@Entity
-@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
-@Table(name = Secret.TABLE_NAME)
-public class Secret extends GCPResource {
+  public String getResourceType() {
+    return resourceType;
+  }
 
-    protected static final String TABLE_NAME = "gcpsecretmanagersecret";
-    public static final String RESOURCE_TYPE = "GCP::SecretManager::Secret";
-
-    public Secret() {
-        this.resourceType = RESOURCE_TYPE;
-    }
+  public void setResourceType(String resourceType) {
+    this.resourceType = resourceType;
+  }
 }

@@ -31,7 +31,7 @@ import javax.persistence.Table;
 public class DataLabelingInstruction extends GCPResource {
 
     protected static final String TABLE_NAME = "gcpdatalabelinginstruction";
-    public static final String RESOURCE_TYPE = "GCP::DataLabeling::AnnotationSpecSet";
+    public static final String RESOURCE_TYPE = "GCP::DataLabeling::Instruction";
 
     public DataLabelingInstruction() {
         this.resourceType = RESOURCE_TYPE;

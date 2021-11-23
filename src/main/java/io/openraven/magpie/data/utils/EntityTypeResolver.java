@@ -45,6 +45,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static java.lang.String.format;
 
@@ -103,7 +104,11 @@ public class EntityTypeResolver extends TypeIdResolverBase {
 
     public static Set<Class<?>> getSubClasses(Class<?> rawClass) {
         Reflections reflections = new Reflections(rawClass.getPackageName());
-        Set<Class<?>> subTypes = (Set<Class<?>>) reflections.getSubTypesOf(rawClass);
-        return subTypes;
+        Set<Class<?>> abstractSubResources = (Set<Class<?>>) reflections.getSubTypesOf(rawClass);
+
+        return abstractSubResources.stream()
+          .map(resourceClass -> (Set<Class<?>>) reflections.getSubTypesOf(resourceClass))
+          .flatMap(Set::stream)
+          .collect(Collectors.toSet());
     }
 }

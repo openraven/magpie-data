@@ -17,23 +17,20 @@
  * limitations under the License.
  * #L%
  */
-package io.openraven.magpie.data.gcp.account;
+package io.openraven.magpie.data.aws.securityhub;
 
-import io.openraven.magpie.data.gcp.GCPResource;
+import io.openraven.magpie.data.aws.AWSResource;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.Table;
+@javax.persistence.Entity
+@javax.persistence.Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
+@javax.persistence.Table(name = SecurityHubStandardSubscription.TABLE_NAME)
+public class SecurityHubStandardSubscription extends AWSResource {
 
-@Entity
-@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
-@Table(name = IamServiceAccount.TABLE_NAME)
-public class IamServiceAccount extends GCPResource {
+  protected static final String TABLE_NAME = "awssecurityhubstandardsubscription";
+  public static final String RESOURCE_TYPE = "AWS::SecurityHub::StandardsSubscription";
 
-    protected static final String TABLE_NAME = "gcpiamserviceaccount";
-    public static final String RESOURCE_TYPE = "GCP::Iam::ServiceAccount";
+  public SecurityHubStandardSubscription() {
+    this.resourceType = RESOURCE_TYPE;
+  }
 
-    public IamServiceAccount() {
-        this.resourceType = RESOURCE_TYPE;
-    }
 }

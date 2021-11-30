@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, gpg_test ]
   pull_request:
     branches: [ main ]
 
@@ -22,5 +22,15 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+      - name: Install GPG Signing Key
+        run: |
+          cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
+              gpg --list-secret-keys --keyid-format LONG
+        env:
+          OSSRH_GPG_SECRET_KEY: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
       - name: Build, Package, Verify
-        run: mvn -B clean package verify install
+        run: mvn -B clean package verify license:check-file-header -Possrh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OSSRH_GPG_KEYNAME: ${{ secrets.OSSRH_GPG_KEYNAME }}
+          OSSRH_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_PASSPHRASE }}

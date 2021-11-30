@@ -27,7 +27,9 @@ jobs:
               gpg --list-secret-keys --keyid-format LONG
         env:
           OSSRH_GPG_SECRET_KEY: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
-      - name: Build, Package, Verify
+      - name: Setup Git Identity
+        run: git config --global user.email "oss@openraven.com" && git config --global user.name "Open Raven OSS"
+      - name: Build && Release
         run: mvn -B release:prepare release:perform -Possrh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

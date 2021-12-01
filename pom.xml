@@ -43,8 +43,8 @@
   </distributionManagement>
 
   <scm>
-    <connection>scm:git:git@github.com:openraven/magpie-data.git</connection>
-    <developerConnection>scm:git:git@github.com:openraven/magpie-data.git</developerConnection>
+    <connection>scm:git:https://github.com/openraven/magpie-data.git</connection>
+    <developerConnection>scm:git:https://github.com/openraven/magpie-data.git</developerConnection>
     <url>https://github.com/openraven/magpie-data.git</url>
     <tag>HEAD</tag>
   </scm>

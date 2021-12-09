@@ -31,6 +31,7 @@ public class CloudWatchAlarm extends AWSResource {
 
   public CloudWatchAlarm() {
     this.resourceType = RESOURCE_TYPE;
+
   }
 
 }

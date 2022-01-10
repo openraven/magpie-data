@@ -29,7 +29,7 @@ import javax.persistence.Table;
 @Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 @Table(name = BigTableInstance.TABLE_NAME)
 public class BigTableInstance extends GCPResource {
-    protected static final String TABLE_NAME = "bigtableinstance";
+    protected static final String TABLE_NAME = "gcpbigtableinstance";
     public static final String RESOURCE_TYPE = "GCP::BigTable::Instance";
 
     public BigTableInstance() {

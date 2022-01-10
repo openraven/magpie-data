@@ -30,7 +30,7 @@ import javax.persistence.Table;
 @Table(name = BigQueryReservation.TABLE_NAME)
 public class BigQueryReservation extends GCPResource {
 
-    protected static final String TABLE_NAME = "bigqueryreservation";
+    protected static final String TABLE_NAME = "gcpbigqueryreservation";
     public static final String RESOURCE_TYPE = "GCP::BigQueryReservation::Reservation";
 
     public BigQueryReservation() {

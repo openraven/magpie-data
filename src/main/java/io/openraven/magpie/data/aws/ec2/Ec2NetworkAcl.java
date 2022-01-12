@@ -46,7 +46,7 @@ import static java.lang.String.format;
 public class Ec2NetworkAcl extends AWSResource {
 
   protected static final String TABLE_NAME = "awsec2networkacl";
-  public static final String RESOURCE_TYPE = "AWS::EC2:NetworkAcl";
+  public static final String RESOURCE_TYPE = "AWS::EC2::NetworkAcl";
 
   @SuppressWarnings("unused")
   public Ec2NetworkAcl() {

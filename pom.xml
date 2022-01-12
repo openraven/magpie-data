@@ -4,7 +4,7 @@
 
   <groupId>io.openraven.magpie</groupId>
   <artifactId>magpie-data</artifactId>
-  <version>0.1.6-SNAPSHOT</version>
+  <version>0.1.7-SNAPSHOT</version>
   <name>Magpie Data</name>
   <url>https://github.com/openraven/magpie-data</url>
   <description>Magpie's JPA Data Layer</description>

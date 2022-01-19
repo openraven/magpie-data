@@ -47,6 +47,8 @@ public class GCPResource extends Resource {
     public String resourceId;
     @Column(name = "resourcetype", columnDefinition = "TEXT", updatable = false)
     public String resourceType;
+    @Column(name = "region", columnDefinition = "TEXT")
+    public String region;
     @Column(name = "projectid", columnDefinition = "TEXT")
     public String projectId;
     @Column(name = "gcpaccountid", columnDefinition = "TEXT")
@@ -209,4 +211,14 @@ public class GCPResource extends Resource {
     public void setDiscoveryMeta(JsonNode discoveryMeta) {
         this.discoveryMeta = discoveryMeta;
     }
+
+    public String getRegion() {
+      return region;
+    }
+
+    public void setRegion(String region) {
+      this.region = region;
+    }
+
+
 }

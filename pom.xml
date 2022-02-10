@@ -319,6 +319,7 @@
           <licenseName>apache_v2</licenseName>
           <projectName>Magpie API</projectName>
           <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+          <roots>src/main/java</roots>
         </configuration>
         <executions>
           <execution>

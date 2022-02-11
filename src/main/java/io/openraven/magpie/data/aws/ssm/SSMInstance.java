@@ -42,7 +42,7 @@ import software.amazon.awssdk.services.ssm.model.InstanceInformation;
 @javax.persistence.Table(name = SSMInstance.TABLE_NAME)
 public class SSMInstance extends AWSResource {
 
-  protected static final String TABLE_NAME = "extendawsssminstance";
+  protected static final String TABLE_NAME = "awsssminstance";
     public static final String RESOURCE_TYPE = "AWS::SSM::Instance";
 
     public SSMInstance() {

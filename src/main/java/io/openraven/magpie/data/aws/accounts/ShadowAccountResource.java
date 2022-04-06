@@ -42,4 +42,8 @@ import io.openraven.magpie.data.aws.AWSResource;
 public class ShadowAccountResource extends AWSResource {
   protected static final String TABLE_NAME = "orvnshadowaccount";
     public static final String RESOURCE_TYPE = "ORVN::ShadowAccount";
+
+  public ShadowAccountResource() {
+    this.resourceType = RESOURCE_TYPE;
+  }
 }

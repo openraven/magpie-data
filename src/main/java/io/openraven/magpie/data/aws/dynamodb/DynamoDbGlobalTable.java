@@ -45,7 +45,9 @@ public class DynamoDbGlobalTable extends AWSResource {
   protected static final String TABLE_NAME = "awsdynamodbglobaltable";
   public static final String RESOURCE_TYPE = "AWS::DynamoDB::GlobalTable";
 
-  public DynamoDbGlobalTable() {}
+  public DynamoDbGlobalTable() {
+    this.resourceType = RESOURCE_TYPE;
+  }
 
   public DynamoDbGlobalTable(String account, String region, GlobalTableDescription table) {
     this.awsAccountId = account;

@@ -51,7 +51,9 @@ public class EfsFileSystem extends AWSResource {
   public static final String RESOURCE_TYPE = "AWS::EFS::FileSystem";
 
   @SuppressWarnings("unused")
-  public EfsFileSystem(){}
+  public EfsFileSystem(){
+    this.resourceType = RESOURCE_TYPE;
+  }
 
   @SuppressWarnings("unused")
   public EfsFileSystem(String region, FileSystemDescription fileSystem) {

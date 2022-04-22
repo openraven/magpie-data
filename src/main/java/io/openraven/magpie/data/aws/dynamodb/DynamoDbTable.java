@@ -45,7 +45,7 @@ public class DynamoDbTable extends AWSResource {
   protected static final String TABLE_NAME = "awsdynamodbtable";
   public static final String RESOURCE_TYPE = "AWS::DynamoDB::Table";
 
-  public DynamoDbTable() {}
+  public DynamoDbTable() {this.resourceType = RESOURCE_TYPE;}
 
   public DynamoDbTable(String account, String region, TableDescription table) {
     this.awsAccountId = account;
